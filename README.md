@@ -69,7 +69,8 @@ Follow the setup wizard until you reach the message:
 
 Run this command inside the `app` container:
 ```bash
-docker exec -it racktables_app_1 sh -c "touch '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod a=rw '/var/www/html/racktables/wwwroot/inc/secret.php'"
+docker exec -it racktables_app_1 sh -c "touch '/var/www/html/racktables/wwwroot/inc/secret.php'"
+docker exec -it racktables_app_1 sh -c "chmod a=rw '/var/www/html/racktables/wwwroot/inc/secret.php'"
 ```
 <img width="500" height="506" alt="{32BDA086-6E18-4ACC-9C3D-5B31B55A5385}" src="https://github.com/user-attachments/assets/54524513-20ce-439b-b636-cdbbc1fd773e" />
 
@@ -120,6 +121,16 @@ Then restart your containers to apply:
 docker-compose down
 docker-compose up -d
 ```
+```bash
+docker exec -it racktables_app_1 sh -c "chown www-data:nogroup '/var/www/html/racktables/wwwroot/inc/secret.php'"
+docker exec -it racktables_app_1 sh -c "chmod 440 '/var/www/html/racktables/wwwroot/inc/secret.php'"
+```
+
+```bash
+docker-compose down -v
+docker-compose up -d
+```
+
 
 ✅ Now, even if you stop, rebuild, or restart containers, your `secret.php` file will remain persistent.
 
