@@ -17,42 +17,7 @@ racktables/
 └── README.md
 ```
 
-Step:1 
-git clone https://github.com/saifulislam88/racktables.git
-cd racktables
-docker-compose build
-docker-compose up -d --build
-docker-compose logs -f 
-docker-compose ps
-
-Step:2
-http://172.17.6.163/
-
-Step:3
-docker exec -it racktables_app_1 sh -c "touch '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod a=rw '/var/www/html/racktables/wwwroot/inc/secret.php'"
-
-
-Step:4
-docker exec -it racktables_app_1 sh -c "chown www-data:nogroup '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod 440 '/var/www/html/racktables/wwwroot/inc/secret.php'"
-
-Step:5 Persistant Racktables data
-mkdir /racktables_data/
-docker cp racktables_app_1:/var/www/html/racktables/wwwroot/inc/secret.php ./racktables_data/
-
-Step:6 : Comment out volumes from docker-composer file for Persitant secret.php file after container down or stop
-
-vim docker-compose.yml
-
-volumes:
-      - ./racktables_data/secret.php:/var/www/html/racktables/wwwroot/inc/secret.php
-
-
-docker-compose down
-docker-compose up -d
-
-
-
-# ⚙️ Step 1: Clone and Build the Project
+## ⚙️ Step 1: Clone and Build the Project
 
 ```bash
 git clone https://github.com/saifulislam88/racktables.git
@@ -83,14 +48,24 @@ http://172.17.6.163/
 Follow the setup wizard until you reach the message:
 > “The /var/www/html/racktables/wwwroot/inc/secret.php file is not writable by web-server.”
 
+<img width="1254" height="350" alt="{0723E497-FCF9-4BB9-8DA7-2B5EF4455001}" src="https://github.com/user-attachments/assets/bb7c2f13-dd82-4650-8a02-d422737a0e59" />
+
+<img width="1284" height="285" alt="{55FCCD34-DE33-4A00-BCE6-0D6207CA4C50}" src="https://github.com/user-attachments/assets/ec5cdea1-b4a8-4c9f-806a-5c63f6362028" />
+<img width="1282" height="481" alt="{F4631F03-FE8D-4170-AFAC-B12763491F68}" src="https://github.com/user-attachments/assets/310a2ecf-3ee6-4d4d-b4dc-e8cad655aaa3" />
+
+
+
 ---
 
 ## 🧩 Step 3: Create and Grant Permissions for secret.php
+
+<img width="1808" height="355" alt="{D4406BC0-7141-4710-BE6F-CEE296021932}" src="https://github.com/user-attachments/assets/de18af3d-1b9b-4bc9-bb3e-e570ad1bf4b3" />
 
 Run this command inside the `app` container:
 ```bash
 docker exec -it racktables_app_1 sh -c "touch '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod a=rw '/var/www/html/racktables/wwwroot/inc/secret.php'"
 ```
+<img width="1298" height="506" alt="{32BDA086-6E18-4ACC-9C3D-5B31B55A5385}" src="https://github.com/user-attachments/assets/54524513-20ce-439b-b636-cdbbc1fd773e" />
 
 This creates the required configuration file and makes it writable by the web server.
 
@@ -99,11 +74,16 @@ This creates the required configuration file and makes it writable by the web se
 ## 🔐 Step 4: Secure the secret.php File
 
 After completing installation (once credentials are written), lock down file permissions:
+
+<img width="1661" height="385" alt="{4A2A9E62-B818-497B-BAE7-0662D5641E4D}" src="https://github.com/user-attachments/assets/cfb41a7d-23fa-44d5-b054-c437d5bd9c1f" />
+
+
 ```bash
 docker exec -it racktables_app_1 sh -c "chown www-data:nogroup '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod 440 '/var/www/html/racktables/wwwroot/inc/secret.php'"
 ```
 
 This ensures only the web server can read it.
+<img width="1513" height="296" alt="{33AF0405-F0C3-4B24-B0E9-D25F43155F79}" src="https://github.com/user-attachments/assets/5fb69b02-a9c5-47f2-b7af-b95326852cb7" />
 
 ---
 
