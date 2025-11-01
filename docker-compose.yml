@@ -30,7 +30,7 @@ services:
     networks:
       - racktables_network
     #volumes:
-    #  - ./racktables_data/inc/secret.php:/var/www/html/racktables/wwwroot/inc/secret.php
+    #  - ./racktables_data/secret.php:/var/www/html/racktables/wwwroot/inc/secret.php
 
 networks:
   racktables_network:
