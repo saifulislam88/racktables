@@ -1,7 +1,7 @@
 ### racktables
 RackTables is a nifty and robust solution for datacenter and server room asset management. It helps document hardware assets, network addresses, space in racks, networks configuration and much much more!
 
-
+git clone https://github.com/saifulislam88/racktables.git
 cd racktables
 docker-compose build
 docker-compose up -d --build
