@@ -16,7 +16,7 @@ services:
     networks:
       - racktables_network
 
-  racktables:
+  app:
     build: .
     ports:
       - "80:80"
