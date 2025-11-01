@@ -65,13 +65,13 @@ Follow the setup wizard until you reach the message:
 
 ## 🧩 Step 3: Create and Grant Permissions for secret.php
 
-<img width="1808" height="355" alt="{D4406BC0-7141-4710-BE6F-CEE296021932}" src="https://github.com/user-attachments/assets/de18af3d-1b9b-4bc9-bb3e-e570ad1bf4b3" />
+<img width="500" height="355" alt="{D4406BC0-7141-4710-BE6F-CEE296021932}" src="https://github.com/user-attachments/assets/de18af3d-1b9b-4bc9-bb3e-e570ad1bf4b3" />
 
 Run this command inside the `app` container:
 ```bash
 docker exec -it racktables_app_1 sh -c "touch '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod a=rw '/var/www/html/racktables/wwwroot/inc/secret.php'"
 ```
-<img width="1298" height="506" alt="{32BDA086-6E18-4ACC-9C3D-5B31B55A5385}" src="https://github.com/user-attachments/assets/54524513-20ce-439b-b636-cdbbc1fd773e" />
+<img width="500" height="506" alt="{32BDA086-6E18-4ACC-9C3D-5B31B55A5385}" src="https://github.com/user-attachments/assets/54524513-20ce-439b-b636-cdbbc1fd773e" />
 
 This creates the required configuration file and makes it writable by the web server.
 
@@ -81,15 +81,16 @@ This creates the required configuration file and makes it writable by the web se
 
 After completing installation (once credentials are written), lock down file permissions:
 
-<img width="1661" height="385" alt="{4A2A9E62-B818-497B-BAE7-0662D5641E4D}" src="https://github.com/user-attachments/assets/cfb41a7d-23fa-44d5-b054-c437d5bd9c1f" />
+<img width="500" height="385" alt="{4A2A9E62-B818-497B-BAE7-0662D5641E4D}" src="https://github.com/user-attachments/assets/cfb41a7d-23fa-44d5-b054-c437d5bd9c1f" />
 
 
 ```bash
-docker exec -it racktables_app_1 sh -c "chown www-data:nogroup '/var/www/html/racktables/wwwroot/inc/secret.php' && chmod 440 '/var/www/html/racktables/wwwroot/inc/secret.php'"
+docker exec -it racktables_app_1 sh -c "chown www-data:nogroup '/var/www/html/racktables/wwwroot/inc/secret.php'"
+docker exec -it racktables_app_1 sh -c "chmod 440 '/var/www/html/racktables/wwwroot/inc/secret.php'"
 ```
 
 This ensures only the web server can read it.
-<img width="1513" height="296" alt="{33AF0405-F0C3-4B24-B0E9-D25F43155F79}" src="https://github.com/user-attachments/assets/5fb69b02-a9c5-47f2-b7af-b95326852cb7" />
+<img width="500" height="296" alt="{33AF0405-F0C3-4B24-B0E9-D25F43155F79}" src="https://github.com/user-attachments/assets/5fb69b02-a9c5-47f2-b7af-b95326852cb7" />
 
 ---
 
