@@ -1,0 +1,37 @@
+services:
+  db:
+    #image: mariadb:latest
+    #entrypoint: sh -c "apt update && apt install -y mariadb-client && exec docker-entrypoint.sh mysqld"
+    build:
+     context: .
+     dockerfile: Dockerfile.db
+    environment:
+      MYSQL_ROOT_PASSWORD: tktpracktables#28
+      MYSQL_DATABASE: racktables
+      MYSQL_USER: racktables_user
+      MYSQL_PASSWORD: tktpracktables#28
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d
+    networks:
+      - racktables_network
+
+  racktables:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      RACKTABLES_DB_HOST: db
+      RACKTABLES_DB_USERNAME: racktables_user
+      RACKTABLES_DB_PASSWORD: tktpracktables#28
+      RACKTABLES_DB_NAME: racktables
+    depends_on:
+      - db
+    networks:
+      - racktables_network
+    #volumes:
+    #  - ./racktables_data/inc/secret.php:/var/www/html/racktables/wwwroot/inc/secret.php
+
+networks:
+  racktables_network:
+    driver: bridge
