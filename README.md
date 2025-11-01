@@ -48,17 +48,20 @@ http://172.17.6.163/
 Follow the setup wizard until you reach the message:
 > “The /var/www/html/racktables/wwwroot/inc/secret.php file is not writable by web-server.”
 
-<img width="1254" height="350" alt="{0723E497-FCF9-4BB9-8DA7-2B5EF4455001}" src="https://github.com/user-attachments/assets/bb7c2f13-dd82-4650-8a02-d422737a0e59" />
 ---
 
-<img width="1284" height="285" alt="{55FCCD34-DE33-4A00-BCE6-0D6207CA4C50}" src="https://github.com/user-attachments/assets/ec5cdea1-b4a8-4c9f-806a-5c63f6362028" />
----
-
-<img width="1282" height="481" alt="{F4631F03-FE8D-4170-AFAC-B12763491F68}" src="https://github.com/user-attachments/assets/310a2ecf-3ee6-4d4d-b4dc-e8cad655aaa3" />
----
-
+<img width="500" height="350" alt="RackTables Setup Step 1" src="https://github.com/user-attachments/assets/bb7c2f13-dd82-4650-8a02-d422737a0e59" />
 
 ---
+
+<img width="500" height="285" alt="RackTables Database Config" src="https://github.com/user-attachments/assets/ec5cdea1-b4a8-4c9f-806a-5c63f6362028" />
+
+---
+
+<img width="500" height="481" alt="RackTables Login Page" src="https://github.com/user-attachments/assets/310a2ecf-3ee6-4d4d-b4dc-e8cad655aaa3" />
+
+---
+
 
 ## 🧩 Step 3: Create and Grant Permissions for secret.php
 
